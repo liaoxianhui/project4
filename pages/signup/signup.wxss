@@ -1,0 +1,8 @@
+@import "/style/lxh.wxss";
+
+.login {
+  padding: 20rpx 40rpx;
+  background: #DD2D20;
+  color: white;
+  border-radius: 20rpx;
+}

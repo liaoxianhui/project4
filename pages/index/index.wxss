@@ -1,0 +1,19 @@
+.bgdc {
+  background: #DD2D20;
+}
+
+.logoimg {
+  width: 200rpx;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+}
+
+.titletext {
+  bottom: 10%;
+}
+
+.fsc {
+  color: #FD9789;
+}

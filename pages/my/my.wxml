@@ -1,0 +1,5 @@
+<view class="my">
+  <!-- 登录 -->
+  <login username="{{username}}" userimg="{{userimg}}"></login>
+  <!--  -->
+</view>

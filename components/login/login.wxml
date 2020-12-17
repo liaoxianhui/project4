@@ -1,0 +1,7 @@
+<!-- 立即登录 -->
+<view class="df aic mt20 ml20" bindtap="">
+  <van-image round width="80rpx" height="80rpx" wx:if="{{userimg!=''}}" src="{{userimg}}" />
+  <van-image round width="80rpx" height="80rpx" wx:else src="https://img.yzcdn.cn/vant/cat.jpeg" />
+  <van-cell wx:if="{{username!=''}}" title="{{username}}" is-link custom-class="celllogin" bind:click="signupclick" />
+  <van-cell wx:else title="立即登录" is-link custom-class="celllogin" bind:click="signupclick" />
+</view>

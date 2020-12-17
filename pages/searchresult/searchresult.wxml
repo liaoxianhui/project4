@@ -1,0 +1,352 @@
+<view class="df aic jcc m20 pr">
+  <image bindtap="clickback" class="mr20" src="/assets/images/return.png" mode="aspectFit"
+    style="width:40rpx;height:40rpx"></image>
+  <input type="text" value="{{value}}" placeholder="{{inputdefault}}" bindinput="inputsearch" bindblur="inputblur"
+    bindfocus="inputfocus" bindconfirm="confirmsearch" style="border-bottom:2rpx solid #C5C5C5;width:90%" />
+  <image wx:if="{{value!==''}}" src="/assets/images/del.png" mode="aspectFit" class="imgdel"
+    style="width:80rpx;height:80rpx" bindtap="clickdel"></image>
+  <view wx:if="{{flag===2}}" class="suggest">
+    <view class="df">
+      <view class="mr10 mb10">搜索</view>
+      <view>“{{value}}”</view>
+    </view>
+    <view wx:for="{{arr}}" wx:key="index" data-item="{{item}}" bindtap="searchkeyword">
+      <view class="mb10">{{item.keyword}}</view>
+    </view>
+  </view>
+</view>
+<view>
+  <van-tabs sticky active="{{ active }}" swipe-threshold="4" bind:click="onClick">
+    <van-tab title="综合">
+      <view class="m20 bgd">
+        <view class="df jc-sb aic mb5 bbottom pb5">
+          <view class="fwb">单曲</view>
+          <view class="df aic b1s">
+            <image src="/assets/images/playall.png" mode="aspectFit" style="width:30rpx;height:30rpx"></image>
+            <view>播放</view>
+          </view>
+        </view>
+        <view wx:for="{{arr1.song.songs}}" wx:key="index" class="mb5 pb5 bbottom" data-item="{{item}}"
+          bindtap="clicksong1">
+          <view>
+            <view>{{item.name}}</view>
+            <view class="df aic w100">
+              <view class="sq">SQ</view>
+              <view class="otw df" style="width:90%">
+                <view wx:for="{{item.ar}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
+                  <view class="df aic colora fs14">
+                    <view class="wsn">{{item1.name}}</view>
+                    <view wx:if="{{index1<item.ar.length-1}}">/</view>
+                  </view>
+                </view>
+                <view class="mr5 ml5 colora">-</view>
+                <view class="colora fs14 mr10 otw">{{item.al.name}}</view>
+              </view>
+            </view>
+          </view>
+          <view wx:if="{{item.alia.length!==0}}" class="colora fs14">{{item.alia}}</view>
+          <view wx:if="{{item.officialTags.length!==0}}" class="colory fs14">{{item.officialTags[0]}}</view>
+        </view>
+        <view class="tac colora fs14" bindtap="clicksingle">{{arr1.song.moreText}}></view>
+      </view>
+      <view class="m20 bgd">
+        <view class="fwb">歌单</view>
+        <view wx:for="{{arr1.playList.playLists}}" wx:key="index" class="df aic mb5 mt5" data-item="{{item}}"
+          bindtap="clicklistdetail">
+          <image src="{{item.coverImgUrl}}" class="imgsong mr10"></image>
+          <view style="width:80%">
+            <view class="otw w100">{{item.name}}</view>
+            <view class="df fs14 otw w100 colora">
+              <view>{{item.trackCount}}首，</view>
+              <view class="otd1">by{{item.creator.nickname}}，</view>
+              <wxs module="filters" src="./round.wxs"></wxs>
+              <view class="otd1" wx:if="{{item.playCount>=10000}}">播放{{price | (item.playCount/10000)}}万次</view>
+              <view class="otd1" wx:else>播放{{item.playCount}}次</view>
+            </view>
+            <view class="df">
+              <view wx:for="{{item.officialTags}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
+                <view class="fs12 colory">{{item1}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="tac colora fs14" bindtap="clicksingle1">{{arr1.playList.moreText}}></view>
+      </view>
+      <view class="m20 bgd">
+        <view class="fwb">视频</view>
+        <view wx:for="{{arr1.video.videos}}" wx:key="index" class="df aic mt10 mb10">
+          <image src="{{item.coverUrl}}" class="imgsong mr10"></image>
+          <view style="width:80%">
+            <view class="df aic w100 ">
+              <view class="mv">MV</view>
+              <view class="otw" style="width:80%">{{item.title}}</view>
+            </view>
+            <view class="df aic fs14">
+              <view wx:if="{{item.durationms/1000/60<10 && item.durationms/1000%60>=10 }}">
+                0{{price | item.durationms/1000/60}}:{{price | item.durationms/1000%60}}，
+              </view>
+              <view wx:elif="{{item.durationms/1000/60>=10 && item.durationms/1000%60<10}}">
+                {{price | item.durationms/1000/60}}:0{{price | item.durationms/1000%60}}，
+              </view>
+              <view wx:elif="{{item.durationms/1000/60<10 && item.durationms/1000%60<10}}">
+                0{{price | item.durationms/1000/60}}:0{{price | item.durationms/1000%60}}，
+              </view>
+              <view wx:else>
+                {{price | item.durationms/1000/60}}:{{price | item.durationms/1000%60}}，
+              </view>
+              <view wx:for="{{item.creator}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
+                <view class="df aic">
+                  <view>{{item1.userName}}</view>
+                  <view wx:if="{{index1<item.creator.length-1}}">/</view>
+                </view>
+              </view>
+              <view wx:if="{{item.playTime>=10000}}">，{{price | item.playTime/10000}}万播放</view>
+              <view wx:else>，{{item.playTime}}次播放</view>
+            </view>
+          </view>
+        </view>
+        <view class="tac colora fs14" bindtap="clicksingle2">{{arr1.video.moreText}}></view>
+      </view>
+      <view class="m20 bgd">
+        <view class="fwb">专辑</view>
+        <view wx:for="{{arr1.album.albums}}" wx:key="index" class="df aic mb5 mt5">
+          <image src="{{item.blurPicUrl}}" class="imgsong mr10"></image>
+          <view style="width:80%">
+            <view class="otw w100">{{item.name}}</view>
+            <view class="df aic">
+              <view class="df aic mr10">
+                <view wx:for="{{item.artists}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
+                  <view class="df fs12 colora">
+                    <view>{{item1.name}}</view>
+                    <view wx:if="{{index1<item.artists.length-1}}">/</view>
+                  </view>
+                </view>
+              </view>
+              <wxs src="./filter.wxs" module="filters" />
+              <view class="fs12 colora">{{filters.formatDate(item.publishTime)}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="tac colora fs14" bindtap="clicksingle3">{{arr1.album.moreText}}></view>
+      </view>
+      <view class="m20 bgd">
+        <view class="fwb">歌手</view>
+        <view>
+          <view wx:for="{{arr1.artist.artists}}" wx:key="index" class="mt10 mb10">
+            <view class="df aic w100">
+              <image src="{{item.picUrl}}" class="imgsinger mr10"></image>
+              <view class="df aic jc-sb" style="width:70%">
+                <view>{{item.name}}</view>
+                <view wx:if="{{item.followed===false}}" class="df aic">
+                  <view class="vSettlement df jcc aic">
+                    <image src="/assets/images/headsinger.png" class="imgSettlement"></image>
+                  </view>
+                  <view class="ml10 fs14 colora">已入驻</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="tac colora fs14" bindtap="clicksingle4">{{arr1.artist.moreText}}></view>
+      </view>
+      <view class="m20 bgd">
+        <view class="fwb">用户</view>
+        <view>
+          <view wx:for="{{arr1.user.users}}" wx:key="index" class="mt10 mb10">
+            <view class="df aic w100">
+              <view class="pr">
+                <image src="{{item.avatarUrl}}" class="imgsinger mr10"></image>
+                <image src="{{item.avatarDetail.identityIconUrl}}" class=" position"></image>
+              </view>
+              <view class="df aic jc-sb" style="width:70%">
+                <view>
+                  <view>{{item.nickname}}</view>
+                  <view class="fs14 colora">{{item.description}}</view>
+                </view>
+                <view class="df aic follow">
+                  <image src="/assets/images/add.png" class="imgfollow"></image>
+                  <view class=" fs14 colord">关注</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="tac colora fs14" bindtap="clicksingle5">{{arr1.user.moreText}}></view>
+      </view>
+    </van-tab>
+    <van-tab title="单曲">
+      <view class="m20 bgd">
+        <view class="df aic jc-sb">
+          <view class="df aic">
+            <image src="/assets/images/playallsong.png" class="imgsinger1 mr5"></image>
+            <view>播放全部</view>
+          </view>
+          <image src="/assets/images/choose.png" class="imgsinger1"></image>
+        </view>
+        <view>
+          <view wx:for="{{arr1.songs}}" wx:key="index" class="mb10 mt10" data-item="{{item}}" bindtap="clicksong">
+            <view class="df aic">
+              <view class="wsn">{{item.name}}</view>
+              <view wx:if="{{item.alias.length!==0}}" class="otw">({{item.alias[0]}})</view>
+            </view>
+            <view class="df aic fs14 colora">
+              <view class="sq">SQ</view>
+              <view wx:for="{{item.artists}}" wx:key="index1" wx:for-item="item1" wx:for-index="index1">
+                <view class="df aic">
+                  <view class="wsn">{{item1.name}}</view>
+                  <view wx:if="{{index1<item.artists.length-1}}">/</view>
+                </view>
+              </view>
+              <view class="otw">-{{item.album.name}}</view>
+            </view>
+          </view>
+        </view>
+        <view></view>
+        <view></view>
+      </view>
+    </van-tab>
+    <van-tab title="歌单">
+      <view class="m20 bgd">
+        <view>
+          <view wx:for="{{arr1.playlists}}" wx:key="index" class="mt10 mb10" data-item="{{item}}"
+            bindtap="clicklistdetail">
+            <view class="df aic">
+              <image src="{{item.coverImgUrl}}" class="imgsong mr10"></image>
+              <view style="width:80%">
+                <view class="otw">{{item.name}}</view>
+                <view class="df aic fs12 colora">
+                  <view class="wsn">{{item.trackCount}}首，</view>
+                  <view class="wsn"> by{{item.creator.nickname}}，</view>
+                  <wxs module="filters" src="./round.wxs"></wxs>
+                  <view class="otw" wx:if="{{item.playCount>=10000}}">播放{{filters.toFix(item.playCount/10000)}}万次</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="视频">
+      <view class="mt20 mb20 bgd df fww jc-sa">
+        <view wx:for="{{arr1.videos}}" wx:key="index" class="mb20" style="width:45%" data-item="{{item}}" bindtap="clickvideo">
+          <view class="pr filterblur">
+            <image src="{{item.coverUrl}}" class="mvimg"></image>
+            <view class="mvtext">MV</view>
+            <image src="{{item.coverUrl}}" class="mvimgtop"></image>
+            <view class="df it2">
+              <image src="{{item.coverUrl}}" class="imgsinger1"></image>
+              <view wx:if="{{item.durationms/1000/60<10 && item.durationms/1000%60>=10 }}">
+                0{{price | item.durationms/1000/60}}:{{price | item.durationms/1000%60}}
+              </view>
+              <view wx:elif="{{item.durationms/1000/60>=10 && item.durationms/1000%60<10}}">
+                {{price | item.durationms/1000/60}}:0{{price | item.durationms/1000%60}}
+              </view>
+              <view wx:elif="{{item.durationms/1000/60<10 && item.durationms/1000%60<10}}">
+                0{{price | item.durationms/1000/60}}:0{{price | item.durationms/1000%60}}
+              </view>
+              <view wx:else>
+                {{price | item.durationms/1000/60}}:{{price | item.durationms/1000%60}}
+              </view>
+            </view>
+          </view>
+          <view class="playbox df fdc jc-sb">
+            <view class="otd2 m10 " style="margin:10rpx 20rpx 0 20rpx">{{item.title}}</view>
+            <view class="df aic " style="margin:0 20rpx 10rpx 20rpx">
+              <view class="df aic fs14">
+                <image src="/assets/images/play1.png" style="width:30rpx;height:30rpx"></image>
+                <wxs module="filters" src="./round.wxs"></wxs>
+                <view class="mr10 colora" wx:if="{{item.playTime>=10000}}">{{price | (item.playTime/10000)}}万
+                </view>
+                <view class="mr10 colora" wx:else>{{item.playTime}}次</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="声音">
+      <view class="m20 bgd">
+        <view class="df aic">
+          <image src="/assets/images/playallsong.png" class="imgsinger1 mr5"></image>
+          <view>播放全部</view>
+        </view>
+        <view>暂无数据</view>
+      </view>
+    </van-tab>
+    <van-tab title="播单">
+      <view class="m20 bgd">
+        <view>暂无数据</view>
+      </view>
+    </van-tab>
+    <van-tab title="云圈">
+      <view class="m20 bgd">
+        <view>暂无数据</view>
+      </view>
+    </van-tab>
+    <van-tab title="歌手">
+      <view class="m20 bgd">
+        <view wx:for="{{arr1.artists}}" wx:key="index" class="mb10">
+          <view class="df aic jc-sb">
+            <view class="df aic">
+              <image src="{{item.img1v1Url}}" class="imgsinger"></image>
+              <view class="ml10">{{item.name}}</view>
+            </view>
+            <view wx:if="{{item.followed===false}}" class="df aic">
+              <view class="vSettlement df jcc aic">
+                <image src="/assets/images/headsinger.png" class="imgSettlement"></image>
+              </view>
+              <view class="ml10 fs14 colora">已入驻</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="专辑">
+      <view class="m20 bgd">
+        <view wx:for="{{arr1.albums}}" wx:key="index" class="df aic mb5 mt5">
+          <image src="{{item.blurPicUrl}}" class="imgsong mr10"></image>
+          <view style="width:80%">
+            <view class="otw w100">{{item.name}}</view>
+            <view class="df aic">
+              <view class="df aic mr10">
+                <view wx:for="{{item.artists}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
+                  <view class="df fs12 colora">
+                    <view>{{item1.name}}</view>
+                    <view wx:if="{{index1<item.artists.length-1}}">/</view>
+                  </view>
+                </view>
+              </view>
+              <wxs src="./filter.wxs" module="filters" />
+              <view class="fs12 colora">{{filters.formatDate(item.publishTime)}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="用户">
+      <view class="m20 bgd">
+        <view>
+          <view wx:for="{{arr1.userprofiles}}" wx:key="index" class="mt10 mb10">
+            <view class="df aic w100">
+              <view class="pr">
+                <image src="{{item.avatarUrl}}" class="imgsinger mr10"></image>
+                <image src="{{item.avatarDetail.identityIconUrl}}" class=" position"></image>
+              </view>
+              <view class="df aic jc-sb" style="width:80%">
+                <view style="width:70%">
+                  <view class="otw w100">{{item.nickname}}</view>
+                  <view wx:if="{{item.description!==''}}" class="fs14 colora otw w100">{{item.description}}</view>
+                  <view wx:else class="fs14 colora otw w100">{{item.signature}}</view>
+                </view>
+                <view class="df aic follow wsn">
+                  <image src="/assets/images/add.png" class="imgfollow"></image>
+                  <view class=" fs14 colord">关注</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view>

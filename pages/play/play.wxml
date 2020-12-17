@@ -1,0 +1,78 @@
+<view class="playsong df fdc aic">
+  <view class="cw w100 pt10 pb10" style="background:#111">
+    <view class="tac">{{arr.name}}</view>
+    <view class="df jcc">
+      <view wx:for="{{arr.ar}}" wx:key="index">
+        <view class="df">
+          <view>{{item.name}}</view>
+          <view wx:if="{{arr.ar.length>index+1}}"> / </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="logimg df jcc aic">
+    <image wx:if="{{num===1 && arr.al.picUrl}}" src="{{arr.al.picUrl}}" class="playimg" bindlongpress="clicklong"
+      style="animation-play-state:{{action.method=='play'?'running':'paused'}}" bindtap="tapsongimg"></image>
+    <view wx:if="{{num===2}}" bindtap="tapsongimg" class="cw">
+      <scroll-view scroll-y="true" scroll-with-animation="true" style="height:800rpx" scroll-top="{{margintop}}"
+        bindscrolltolower="tolower">
+        <view wx:for="{{arr1}}" wx:key="index">
+          <view class="tac fs14 otd1 {{index===marginindex?'colorred':''}}" style="height:40px;line-height:80rpx">
+            {{item[1]}}
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="df cw w100 aic jcc">
+    <view class="">{{sliderstart}}</view>
+    <slider bindchange="drag" block-size="12" class="slider " max="{{max}}" value="{{move}}"></slider>
+    <view class="">{{sliderend}}</view>
+  </view>
+  <view class="df jc-sa aic w100 mt20">
+    <view>
+      <image wx:if="{{numplay===1}}" bindtap="clickplay" src="/assets/images/single.png" mode="aspectFit"
+        class="pauseimg"></image>
+      <image wx:if="{{numplay===2}}" bindtap="clickplay" src="/assets/images/loop.png" mode="aspectFit"
+        class="pauseimg"></image>
+      <image wx:if="{{numplay===3}}" bindtap="clickplay" src="/assets/images/random.png" mode="aspectFit"
+        class="pauseimg"></image>
+    </view>
+    <view>
+      <image src="/assets/images/prevsong.png" bindtap="clickprevsong" mode="aspectFit" class="pauseimg"></image>
+    </view>
+    <view>
+      <image src="/assets/images/{{action.method!=='pause'?'pausesong':'playsong'}}.png" bindtap="tapplay"
+        mode="aspectFit" class="pauseimg"></image>
+    </view>
+    <view>
+      <image wx:if="/assets/images/nextsong.png" src="/assets/images/nextsong.png" bindtap="clicknextsong"
+        mode="aspectFit" class="pauseimg"></image>
+    </view>
+    <view>
+      <image wx:if="/assets/images/songlist.png" src="/assets/images/songlist.png" bindtap="clicksonglist"
+        mode="aspectFit" class="pauseimg"></image>
+    </view>
+  </view>
+  <view>
+    <!-- <audio src="{{url}}" action="{{action}}" bindtimeupdate="changetime" bindended="playended"></audio> -->
+  </view>
+</view>
+<view>
+  <van-popup show="{{ show }}" round position="bottom" custom-class="popup" custom-style="height: 50%;width:90%;"
+    bind:close="onClose">
+    <scroll-view>
+      <view wx:for="{{arr2}}" wx:key="index" bindtap="clickchangesong" data-item="{{item}}"
+        class="df aic mb10 {{arr.name===item.name?'colorred':''}}">
+        <view class="otd1">{{item.name}}</view>
+        <view class="ml5 mr5 otd1">-</view>
+        <view wx:for="{{item.ar}}" wx:key="index1" wx:for-item="item1" wx:for-index="index1" class="df aic ">
+          <view class="df aic">
+            <view class=" otd1">{{item1.name}}</view>
+            <view wx:if="{{index1<item.ar.length-1}}">/</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </van-popup>
+</view>

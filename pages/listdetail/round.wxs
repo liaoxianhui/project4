@@ -1,0 +1,9 @@
+var filters = {
+  toFix: function (params) {
+    return params.toFixed(1)
+  }
+}
+
+module.exports = {
+  toFix: filters.toFix
+}

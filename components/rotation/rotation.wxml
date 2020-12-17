@@ -1,0 +1,13 @@
+<view class="mtop">
+
+  <swiper circular indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"
+    duration="{{duration}}">
+    <view wx:for="{{arr}}" wx:key="index" data-item="{{item}}" bindtap="tapplay">
+      <swiper-item class="df jcc pr">
+        <image wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" class="rotationimg"></image>
+        <view class="rotationposition">{{item.typeTitle}}</view>
+      </swiper-item>
+    </view>
+  </swiper>
+
+</view>

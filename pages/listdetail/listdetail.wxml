@@ -1,0 +1,67 @@
+<view class="headv pr">
+  <image wx:if="{{arr.coverImgUrl}}" src="{{arr.coverImgUrl}}" class="w100 filterblur"></image>
+  <view class="paa df">
+    <view class=" df jcc pr ">
+      <view class="bgdview"></view>
+      <image wx:if="{{arr.coverImgUrl}}" src="{{arr.coverImgUrl}}" class="imgpa"></image>
+      <view class="df patwo">
+        <image src="/assets/images/play.png" class="imgplay"></image>
+        <wxs module="filter" src="./round.wxs"></wxs>
+        <view class="fs14 cw" wx:if="{{arr.playCount>=100000000}}">{{filter.toFix(arr.playCount/100000000)}}亿</view>
+        <view class="fs14 cw" wx:elif="{{arr.playCount<100000000 && arr.playCount>=10000}}">
+          {{price | arr.playCount/10000}}万</view>
+        <view class="fs14 cw" wx:else>{{arr.playCount}}次</view>
+      </view>
+    </view>
+    <view class="ml20 mt10 df fdc jc-sb">
+      <view>
+        <view class="cw otd2 mr20 mb10">{{arr.name}}</view>
+        <view class="df aic">
+          <image wx:if="{{arr.creator.avatarUrl}}" src="{{arr.creator.avatarUrl}}" class="br50"
+            style="width:40rpx;height:40rpx"></image>
+          <view class="ml10 mr10" style="color:#999">{{arr.creator.nickname}}</view>
+          <view style="background:rgba(128,128,128,.8);border-radius:20rpx" class=" af jcc aic pl10 pr10">
+            <image src="/assets/images/addsong.png" style="width:30rpx;height:30rpx"></image>
+          </view>
+        </view>
+      </view>
+      <view class="fs14 otw " style="width:400rpx;color:#999" wx:if="{{arr.description!==''}}">{{arr.description}}
+      </view>
+      <view style="color:#999" wx:else>介绍：无</view>
+    </view>
+  </view>
+</view>
+<view class="df jc-sa aic bw pr m0a  pt5 pb5 boxsha">
+  <view class="df aic mr10 ml10">
+    <image src="/assets/images/add1.png" class="addthree"></image>
+    <wxs module="filter" src="./round.wxs"></wxs>
+    <view class="wsn" wx:if="{{arr.subscribedCount>=10000}}">{{filter.toFix(arr.subscribedCount/10000)}}万</view>
+    <view wx:else>{{arr.subscribedCount}}</view>
+  </view>
+  <view class="df aic lrbor">
+    <image src="/assets/images/add2.png" class="addthree"></image>
+    <view>{{arr.commentCount}}</view>
+  </view>
+  <view class="df aic ml10 mr10">
+    <image src="/assets/images/add3.png" class="addthree"></image>
+    <view>{{arr.shareCount}}</view>
+  </view>
+</view>
+<view class="m20">
+  <view wx:for="{{arrsongdetail}}" wx:key="index" class="df aic mb10" data-item="{{item}}" bindtap="clickplaysong">
+    <view class="" style="width:9%">{{index+1}}</view>
+    <view style="width:91%">
+      <view class="otd1">{{item.name}}</view>
+      <view class="df aic">
+        <view class="df aic">
+          <view wx:for="{{item.ar}}" wx:key="index1" wx:for-item="item1" wx:for-index="index1" class="df aic fs14 cg">
+            <view class="wsn">{{item1.name}}</view>
+            <view wx:if="{{index1<item.ar.length-1}}">/</view>
+          </view>
+        </view>
+        <view class="ml5 mr5 fs14 cg">-</view>
+        <view class="otd1 fs14 cg">{{item.al.name}}</view>
+      </view>
+    </view>
+  </view>
+</view>

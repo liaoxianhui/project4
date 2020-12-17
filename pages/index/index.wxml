@@ -1,0 +1,8 @@
+<!--启动页-->
+<view class=" pa t0 b0 l0 r0 z99 bgdc">
+  <image src="/assets/images/logo.png" mode="aspectFit" class="logoimg"></image>
+  <view class="cw  pa l50 ttx-50 titletext">
+    <view class=" fwb">网易云音乐 · 音乐的力量</view>
+    <view class="mt5 fs12 tac fsc">网易云音乐支持IPv6网络</view>
+  </view>
+</view>

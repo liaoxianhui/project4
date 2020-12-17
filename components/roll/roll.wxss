@@ -1,0 +1,23 @@
+@import "/style/lxh.wxss";
+
+.rollimg {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.rollbgc {
+  background: #FEF0F1;
+  padding: 24rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rollbottom {
+  padding: 20rpx 0;
+}
+
+.vhr {
+  border-bottom: 1rpx solid #cccccc;
+}

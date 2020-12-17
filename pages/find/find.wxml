@@ -1,0 +1,12 @@
+<!-- 搜索 -->
+<search username="{{username}}" userimg="{{userimg}}" bind:clearid="getlocal"></search>
+<!-- 轮播图 -->
+<rotation arr="{{arr}}"></rotation>
+<!-- 滚动 -->
+<roll arr="{{arrti}}"></roll>
+<!-- 推荐 -->
+<recommend arr="{{arr1}}"></recommend>
+<!-- 新歌、新碟、数字专辑 -->
+<newsong arr="{{arr2}}" arr1="{{arr3}}" arr2="{{arr4}}"></newsong>
+<!-- 排行榜 -->
+<rankinglist arr="{{arr5}}"></rankinglist>

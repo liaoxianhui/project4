@@ -1,0 +1,98 @@
+<view class=" pf t0 zi9 bw w100">
+  <view class="ml10 mr10 df jc-sb aic">
+    <image src="/assets/images/catalog.png" bindtap="catalogtap" mode="aspectFit" class="threeicon "></image>
+    <!-- 搜索框 -->
+    <van-search value="{{ value }}" shape="round" placeholder="请输入搜索关键词" bind:focus="searchfocus"
+      style="width:700rpx" />
+    <image src="/assets/images/lts.png" mode="aspectFit" class="threeicon "></image>
+  </view>
+</view>
+<!-- 左侧弹出层 -->
+<van-popup show="{{ show }}" position="left" custom-style="width:80%;height:100%;background:#F4F4F4"
+  bind:close="onClose">
+  <!-- 1登录 -->
+  <view class="positionf">
+    <view class="df jc-sb aic m10">
+      <view class="df aic">
+        <view>
+          <van-image wx:if="{{userimg!=''}}" round width="40px" height="40px" src="{{userimg}}" />
+          <van-image wx:else round width="40px" height="40px" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+        </view>
+        <!-- 单元格 -->
+        <view>
+          <van-cell wx:if="{{username!=''}}" title="{{username}}" is-link bind:click="clicksign" />
+          <van-cell wx:else title="立即登录" is-link bind:click="clicksign" />
+        </view>
+      </view>
+      <image src="/assets/images/scan.png" mode="aspectFit" class="scanimg"></image>
+    </view>
+  </view>
+  <view>
+    <scroll-view scroll-y="true" style="width100%;height:1100rpx">
+      <!-- 2开通会员 -->
+      <view class="mtop m10">
+        <view class=" pb10" style="border-bottom:1rpx solid white">
+          <view class="df jc-sb aic">
+            <view class="cw fwb">开通黑胶VIP</view>
+            <view class="member">会员中心</view>
+          </view>
+          <view class="fs12 cw">立享超17项专属特权</view>
+        </view>
+        <view class="df aic jc-sb fs12 cw pt10">
+          <view>黑胶VIP仅5元，享超17项专属特权！</view>
+          <image src="/assets/images/redpackage.png" mode="aspectFit" class="redpackageimg"></image>
+        </view>
+      </view>
+      <!-- 3消息 -->
+      <van-cell-group custom-class="news m10">
+        <van-cell title="我的消息" icon="envelop-o" is-link custom-class="news1" />
+        <van-cell title="云贝中心" icon="balance-pay" value="做任务赚云贝" is-link custom-class="news2" />
+      </van-cell-group>
+      <!-- 4音乐服务 -->
+      <van-cell-group custom-class="news m10">
+        <van-cell title="音乐服务" custom-class="news1" />
+        <van-cell title="云村有票" icon="envelop-o" is-link />
+        <van-cell title="商城" icon="shopping-cart-o" is-link>
+          <view>漫威tws降170</view>
+        </van-cell>
+        <van-cell title="游戏专区" icon="like-o" is-link>
+          <van-icon slot="right-icon" name="search" class="custom-icon" />
+        </van-cell>
+        <van-cell title="口袋彩铃" icon="bullhorn-o" is-link custom-class="news2">
+          <view>超调的冬季恋歌</view>
+        </van-cell>
+      </van-cell-group>
+      <!-- 5其他 -->
+      <van-cell-group custom-class="news m10">
+        <van-cell title="其他" custom-class="news1" />
+        <van-cell title="设置" icon="setting-o" is-link />
+        <van-cell title="夜间模式" icon="browsing-history-o" custom-class="switch">
+          <van-switch checked="{{ checked }}" bind:change="onChange" size="20px" />
+        </van-cell>
+        <van-cell title="定时关闭" icon="underway-o" is-link />
+        <van-cell title="个性装扮" icon="pending-payment" is-link />
+        <van-cell title="边听边存" icon="service-o" is-link>
+          <view>未开启</view>
+        </van-cell>
+        <van-cell title="在线听歌免流量" icon="volume-o" is-link />
+        <van-cell title="音乐黑名单" icon="close" is-link />
+        <van-cell title="青少年模式" icon="passed" is-link>
+          <view>未开启</view>
+        </van-cell>
+        <van-cell title="音乐闹钟" icon="tosend" is-link custom-class="news2" />
+      </van-cell-group>
+      <!-- 6我的订单 -->
+      <van-cell-group custom-class="news m10">
+        <van-cell title="我的订单" icon="description" is-link custom-class="news1" />
+        <van-cell title="优惠券" icon="orders-o" is-link />
+        <van-cell title="帮助与反馈" icon="question-o" is-link />
+        <van-cell title="分享网易云音乐" icon="share-o" is-link />
+        <van-cell title="关于" icon="info-o" is-link custom-class="news2" />
+      </van-cell-group>
+      <!-- 7关闭 -->
+      <van-cell-group custom-class="news m10">
+        <van-cell title="关闭云音乐" title-class="close" custom-class="news" bind:click="clickexit" />
+      </van-cell-group>
+    </scroll-view>
+  </view>
+</van-popup>

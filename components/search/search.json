@@ -1,0 +1,13 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-icon": "/miniprogram_npm/@vant/weapp/icon",
+    "van-search": "/miniprogram_npm/@vant/weapp/search",
+    "van-popup": "/miniprogram_npm/@vant/weapp/popup",
+    "van-image": "/miniprogram_npm/@vant/weapp/image",
+    "van-cell": "/miniprogram_npm/@vant/weapp/cell",
+    "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group",
+    "van-switch": "/miniprogram_npm/@vant/weapp/switch",
+    "van-switch-cell": "/miniprogram_npm/@vant/weapp/swipe-cell"
+  }
+}

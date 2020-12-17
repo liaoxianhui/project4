@@ -1,0 +1,170 @@
+.imgdel {
+  position: absolute;
+  right: 0;
+  z-index: 99;
+}
+
+.b1s {
+  border: 1rpx solid #C5C5C5;
+  border-radius: 30rpx;
+  padding: 5rpx 20rpx;
+}
+
+.colora {
+  color: #A8A8A8;
+}
+
+.colory {
+  color: #E7C337;
+}
+
+.colord {
+  color: #DD2D20;
+}
+
+.sq {
+  color: #DD2D20;
+  border: 1rpx solid #DD2D20;
+  padding: 5rpx 10rpx;
+  border-radius: 20rpx;
+  font-size: 14rpx;
+  background: #FEF8EE;
+  margin-right: 10rpx;
+}
+
+.bbottom {
+  border-bottom: 1rpx solid #999999;
+}
+
+.bgd {
+  background: #F5F5F5;
+  padding: 30rpx 30rpx;
+  border-radius: 30rpx;
+}
+
+.imgsong {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 30rpx;
+}
+
+.imgSettlement {
+  width: 30rpx;
+  height: 30rpx;
+  /* border-radius: 50%; */
+}
+
+.vSettlement {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background: #DD2D20;
+}
+
+.follow {
+  border: 1rpx solid #DD2D20;
+  border-radius: 30rpx;
+  padding: 5rpx 20rpx;
+}
+
+.mvimg {
+  width: 100%;
+  height: 400rpx;
+  filter: blur(20rpx);
+}
+
+.filterblur {
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+  overflow: hidden;
+}
+
+.mvtext {
+  color: white;
+  font-weight: bold;
+  padding: 5rpx 10rpx;
+  background: #A29B91;
+  position: absolute;
+  top: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20rpx;
+}
+
+.playbox {
+  width: 100%;
+  height: 150rpx;
+  border-bottom: 1rpx solid rgba(128, 128, 128, .5);
+  box-shadow: 0 0 10rpx gray;
+  background: #fff;
+}
+
+.suggest {
+  width: 100%;
+  background: #fff;
+  position: absolute;
+  top: 100rpx;
+  left: 0;
+  z-index: 999;
+  padding: 20rpx;
+  box-shadow: 0 0 10rpx gray;
+}
+
+.mvimgtop {
+  width: 90%;
+  height: 200rpx;
+  position: absolute;
+  top: 100rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.position {
+  position: absolute;
+  bottom: 0;
+  right: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.imgfollow {
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 5rpx;
+}
+
+.imgsinger {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.imgsinger1 {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.it2 {
+  position: absolute;
+  bottom: 20rpx;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: space-between;
+  color: white;
+}
+
+.imgsinger1 {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.mv {
+  border: 1rpx solid #DD2D20;
+  color: #DD2D20;
+  border-radius: 20rpx;
+  font-size: 20rpx;
+  padding: 5rpx 10rpx;
+  margin-right: 20rpx;
+}

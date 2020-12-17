@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "search": "/components/search/search",
+    "rotation": "/components/rotation/rotation",
+    "recommend": "/components/recommend/recommend",
+    "roll": "/components/roll/roll",
+    "newsong": "/components/newsong/newsong",
+    "rankinglist": "/components/rankinglist/rankinglist"
+  }
+}

@@ -1,0 +1,40 @@
+@import "/style/lxh.wxss";
+
+.newdisc {
+  border-left: 2rpx solid #cccccc;
+  border-right: 2rpx solid #cccccc;
+  padding: 0rpx 10rpx;
+}
+
+.colorb {
+  color: black;
+}
+
+.more {
+  border: 1rpx solid #cccccc;
+  border-radius: 30rpx;
+  padding: 5rpx 20rpx;
+  color: black;
+}
+
+.onerow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  align-items: center;
+  max-width: 200rpx;
+}
+
+.circle {
+  color: #DD2D20;
+  border: 1rpx solid #DD2D20;
+  padding: 5rpx 10rpx;
+  font-size: 20rpx;
+  border-radius: 10rpx;
+  white-space: nowrap;
+  margin-right: 10rpx;
+}
+
+.songexplain {
+  font-size: 20rpx
+}

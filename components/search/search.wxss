@@ -1,0 +1,65 @@
+@import "/style/lxh.wxss";
+
+.threeicon {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.scanimg {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.mtop {
+  margin-top: 130rpx;
+  background: #8E8E8E;
+  background-image: linear-gradient(to right, #8B8B8B, #B6B6B6);
+  border-radius: 20rpx;
+  padding: 20rpx;
+}
+
+.member {
+  border: 1rpx solid white;
+  border-radius: 30rpx;
+  padding: 10rpx 20rpx;
+  color: white;
+  font-size: 22rpx;
+}
+
+.redpackageimg {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.news {
+  border-radius: 20rpx;
+}
+
+.news1 {
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+
+.news2 {
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}
+
+.switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close {
+  text-align: center;
+}
+
+.positionf {
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}

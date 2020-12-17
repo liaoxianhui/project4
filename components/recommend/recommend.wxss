@@ -1,0 +1,30 @@
+@import "/style/lxh.wxss";
+
+.recommendimg {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10%;
+}
+
+.recommendtext {
+  font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.more {
+  border: 1rpx solid #cccccc;
+  border-radius: 30rpx;
+  padding: 5rpx 20rpx;
+  color: black;
+}
+
+.paa{
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+  color: white;
+}

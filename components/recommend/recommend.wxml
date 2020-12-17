@@ -1,0 +1,23 @@
+<view>
+  <view>
+    <view class=" m10 df jc-sb">
+      <view class="fwb">推荐歌单</view>
+      <view class="more" bindtap="tapmore">更多></view>
+    </view>
+    <view>
+      <scroll-view scroll-x>
+        <view class="df">
+          <view wx:for="{{arr}}" wx:key="index" wx:if="{{index<6}}" class="ml10 pr" data-item="{{item}}"
+            bindtap="clickdetail">
+            <image wx:if="{{item.picUrl}}" src="{{item.picUrl}}" mode="aspectFit" class="recommendimg"></image>
+            <wxs module="filters" src="./round.wxs"></wxs>
+            <view class="paa" wx:if="{{item.playCount>=100000000}}">{{filters.toFix(item.playCount/100000000)}}亿</view>
+            <view class="paa" wx:if="{{item.playCount>=10000 && item.playCount<100000000}}">
+              {{price | item.playCount/10000}}万</view>
+            <view class="recommendtext">{{item.name}}</view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

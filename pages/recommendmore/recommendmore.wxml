@@ -1,0 +1,166 @@
+<!-- 热门推荐华语 | 流行 | 摇滚 | 民谣 | 电子 -->
+<van-tabs animated sticky swipeable bind:click="onClick">
+  <van-tab title="推荐">
+    <swiper circular="true" autoplay>
+      <view wx:for="{{arr1}}" wx:key="index" wx:if="{{index<3}}" data-item="{{item}}" bindtap="clicklistdetail">
+        <swiper-item>
+          <image src="{{item.picUrl}}" class="w100"></image>
+          <view class="pa t10 r10 cw fs12 playcount df aic" wx:if="{{item.playCount>=10000}}">
+            <image src="/assets/images/play.png" mode="aspectFit" class="playimg"></image>
+            <view>{{price | item.playCount/10000}}万</view>
+          </view>
+          <view class="pa t10 r10 cw fs12 playcount df aic" wx:if="{{item.playCount>=100000000}}">
+            <image src="/assets/images/play.png" mode="aspectFit" class="playimg"></image>
+            {{price | item.playCount/100000000}}亿
+          </view>
+          <view class="otd2 fs14">{{item.name}}</view>
+        </swiper-item>
+      </view>
+    </swiper>
+    <view class="df fww jc-sa mt10">
+      <view wx:for="{{arr1}}" wx:if="{{index>=3}}" wx:key="index" class="mb10 pr" style="width: 220rpx;"
+        data-item="{{item}}" bindtap="clicklistdetail">
+        <image src="{{item.picUrl}}" mode="aspectFit" class=" recommendimg"></image>
+        <view class="pa t10 r10 cw fs12 playcount df aic" wx:if="{{item.playCount>=10000}}">
+          <image src="/assets/images/play.png" mode="aspectFit" class="playimg"></image>
+          <view>{{price | item.playCount/10000}}万</view>
+        </view>
+        <view class="pa t10 r10 cw fs12 playcount" wx:if="{{item.playCount>=100000000}}">
+          {{price | item.playCount/100000000}}亿
+        </view>
+        <view class="otd2 fs14">{{item.name}}</view>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="官方">
+    <view class="df fww jc-sa mt10">
+      <view wx:for="{{arr1}}" wx:if="{{index>=3}}" wx:key="index" class="mb10 pr" style="width: 220rpx;"
+        data-item="{{item}}" bindtap="clicklistdetail">
+        <image src="{{item.coverImgUrl}}" mode="aspectFit" class=" recommendimg"></image>
+        <view class="pa t10 r10 cw fs12 playcount df aic" wx:if="{{item.playCount>=10000}}">
+          <image src="/assets/images/play.png" mode="aspectFit" class="playimg"></image>
+          <view>{{price | item.playCount/10000}}万</view>
+        </view>
+        <view class="pa t10 r10 cw fs12 playcount" wx:if="{{item.playCount>=100000000}}">
+          {{price | item.playCount/100000000}}亿
+        </view>
+        <view class="otd2 fs14">{{item.name}}</view>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="视频歌单">
+    <view>暂无数据</view>
+  </van-tab>
+  <van-tab title="精品">
+    <view class="df fww jc-sa mt10">
+      <view wx:for="{{arr1}}" wx:if="{{index>=3}}" wx:key="index" class="mb10 pr" style="width: 220rpx;"
+        data-item="{{item}}" bindtap="clicklistdetail">
+        <image src="{{item.coverImgUrl}}" mode="aspectFit" class=" recommendimg"></image>
+        <view class="pa t10 r10 cw fs12 playcount df aic" wx:if="{{item.playCount>=10000}}">
+          <image src="/assets/images/play.png" mode="aspectFit" class="playimg"></image>
+          <view>{{price | item.playCount/10000}}万</view>
+        </view>
+        <view class="pa t10 r10 cw fs12 playcount" wx:if="{{item.playCount>=100000000}}">
+          {{price | item.playCount/100000000}}亿
+        </view>
+        <view class="otd2 fs14">{{item.name}}</view>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="华语">
+    <view class="df fww jc-sa mt10">
+      <view wx:for="{{arr1}}" wx:if="{{index>=3}}" wx:key="index" class="mb10 pr" style="width: 220rpx;"
+        data-item="{{item}}" bindtap="clicklistdetail">
+        <image src="{{item.coverImgUrl}}" mode="aspectFit" class=" recommendimg"></image>
+        <view class="pa t10 r10 cw fs12 playcount df aic" wx:if="{{item.playCount>=10000}}">
+          <image src="/assets/images/play.png" mode="aspectFit" class="playimg"></image>
+          <view>{{price | item.playCount/10000}}万</view>
+        </view>
+        <view class="pa t10 r10 cw fs12 playcount" wx:if="{{item.playCount>=100000000}}">
+          {{price | item.playCount/100000000}}亿
+        </view>
+        <view class="otd2 fs14">{{item.name}}</view>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="流行">
+    <view class="df fww jc-sa mt10">
+      <view wx:for="{{arr1}}" wx:if="{{index>=3}}" wx:key="index" class="mb10 pr" style="width: 220rpx;"
+        data-item="{{item}}" bindtap="clicklistdetail">
+        <image src="{{item.coverImgUrl}}" mode="aspectFit" class=" recommendimg"></image>
+        <view class="pa t10 r10 cw fs12 playcount df aic" wx:if="{{item.playCount>=10000}}">
+          <image src="/assets/images/play.png" mode="aspectFit" class="playimg"></image>
+          <view>{{price | item.playCount/10000}}万</view>
+        </view>
+        <view class="pa t10 r10 cw fs12 playcount" wx:if="{{item.playCount>=100000000}}">
+          {{price | item.playCount/100000000}}亿
+        </view>
+        <view class="otd2 fs14">{{item.name}}</view>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="轻音乐">
+    <view class="df fww jc-sa mt10">
+      <view wx:for="{{arr1}}" wx:if="{{index>=3}}" wx:key="index" class="mb10 pr" style="width: 220rpx;"
+        data-item="{{item}}" bindtap="clicklistdetail">
+        <image src="{{item.coverImgUrl}}" mode="aspectFit" class=" recommendimg"></image>
+        <view class="pa t10 r10 cw fs12 playcount df aic" wx:if="{{item.playCount>=10000}}">
+          <image src="/assets/images/play.png" mode="aspectFit" class="playimg"></image>
+          <view>{{price | item.playCount/10000}}万</view>
+        </view>
+        <view class="pa t10 r10 cw fs12 playcount" wx:if="{{item.playCount>=100000000}}">
+          {{price | item.playCount/100000000}}亿
+        </view>
+        <view class="otd2 fs14">{{item.name}}</view>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="摇滚">
+    <view class="df fww jc-sa mt10">
+      <view wx:for="{{arr1}}" wx:if="{{index>=3}}" wx:key="index" class="mb10 pr" style="width: 220rpx;"
+        data-item="{{item}}" bindtap="clicklistdetail">
+        <image src="{{item.coverImgUrl}}" mode="aspectFit" class=" recommendimg"></image>
+        <view class="pa t10 r10 cw fs12 playcount df aic" wx:if="{{item.playCount>=10000}}">
+          <image src="/assets/images/play.png" mode="aspectFit" class="playimg"></image>
+          <view>{{price | item.playCount/10000}}万</view>
+        </view>
+        <view class="pa t10 r10 cw fs12 playcount" wx:if="{{item.playCount>=100000000}}">
+          {{price | item.playCount/100000000}}亿
+        </view>
+        <view class="otd2 fs14">{{item.name}}</view>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="民谣">
+    <view class="df fww jc-sa mt10">
+      <view wx:for="{{arr1}}" wx:if="{{index>=3}}" wx:key="index" class="mb10 pr" style="width: 220rpx;"
+        data-item="{{item}}" bindtap="clicklistdetail">
+        <image src="{{item.coverImgUrl}}" mode="aspectFit" class=" recommendimg"></image>
+        <view class="pa t10 r10 cw fs12 playcount df aic" wx:if="{{item.playCount>=10000}}">
+          <image src="/assets/images/play.png" mode="aspectFit" class="playimg"></image>
+          <view>{{price | item.playCount/10000}}万</view>
+        </view>
+        <view class="pa t10 r10 cw fs12 playcount" wx:if="{{item.playCount>=100000000}}">
+          {{price | item.playCount/100000000}}亿
+        </view>
+        <view class="otd2 fs14">{{item.name}}</view>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="电子">
+    <view class="df fww jc-sa mt10">
+      <view wx:for="{{arr1}}" wx:if="{{index>=3}}" wx:key="index" class="mb10 pr" style="width: 220rpx;"
+        data-item="{{item}}" bindtap="clicklistdetail">
+        <image src="{{item.coverImgUrl}}" mode="aspectFit" class=" recommendimg"></image>
+        <view class="pa t10 r10 cw fs12 playcount df aic" wx:if="{{item.playCount>=10000}}">
+          <image src="/assets/images/play.png" mode="aspectFit" class="playimg"></image>
+          <view>{{price | item.playCount/10000}}万</view>
+        </view>
+        <view class="pa t10 r10 cw fs12 playcount" wx:if="{{item.playCount>=100000000}}">
+          {{price | item.playCount/100000000}}亿
+        </view>
+        <view class="otd2 fs14">{{item.name}}</view>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>

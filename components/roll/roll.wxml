@@ -1,0 +1,13 @@
+<view class="rollbottom">
+  <scroll-view scroll-x>
+    <view class="df ">
+      <view wx:for="{{arr}}" wx:key="index" class="ml10 mr5" data-index="{{index}}" bindtap="clickrecommend">
+        <view class="rollbgc">
+          <image wx:if="{{item.images}}" src="{{item.images}}" class="rollimg"></image>
+        </view>
+        <view class="fs12 tac">{{item.name}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class="vhr"> </view>

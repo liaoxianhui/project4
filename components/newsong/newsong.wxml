@@ -1,0 +1,158 @@
+<view class="df jc-sb m10">
+  <view class="df fwb" style="color:#9B9B9B">
+    <view class="pr5 {{num===1?'colorb':''}}" bindtap="newsongtap1">新歌</view>
+    <view class="newdisc {{num===2?'colorb':''}}" bindtap="newsongtap2">新碟</view>
+    <view class="pl5 {{num===3?'colorb':''}}" bindtap="newsongtap3">数字专辑</view>
+  </view>
+  <view class="more" bindtap="clickmore">更多></view>
+</view>
+
+<view wx:if="{{num===1}}" class="w100">
+  <scroll-view scroll-x class="w100">
+    <view class="df">
+      <view class="ml10">
+        <view wx:for="{{arr}}" wx:key="index" wx:if="{{index<3}}" class="df mb10" data-item="{{item}}"
+          bindtap="clicksongdetail">
+          <image wx:if="{{item.picUrl}}" src="{{item.picUrl}}" mode="aspectFit" class="mr5"
+            style="width:100rpx;height:100rpx"></image>
+          <view>
+            <view class="df aic" style="width:630rpx">
+              <view class="onerow">{{item.name}}</view>
+              <view class="mr5 ml5"> - </view>
+              <view class="df aic onerow h100" style="font-size:20rpx">
+                <view wx:for="{{item.song.album.artists}}" wx:key="index1" wx:for-item="item1" wx:for-index="index1"
+                  class="h100">
+                  <view class="h100 mr10 df aic pt5 " style="color:#666">
+                    {{ item1.name }}
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="df aic">
+              <view class="circle">{{item.song.album.subType}}</view>
+              <view class="otw" style="width:500rpx;font-size:20rpx">{{item.song.album.alias}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="ml10">
+        <view wx:for="{{arr}}" wx:key="index" wx:if="{{index<6 && index>=3}}" class="df mb10" data-item="{{item}}"
+          bindtap="clicksongdetail">
+          <image wx:if="{{item.picUrl}}" src="{{item.picUrl}}" mode="aspectFit" class="mr5"
+            style="width:100rpx;height:100rpx"></image>
+          <view>
+            <view class="df aic" style="width:630rpx">
+              <view class="onerow">{{item.name}}</view>
+              <view class="mr5 ml5"> - </view>
+              <view class="df aic onerow h100" style="font-size:20rpx">
+                <view wx:for="{{item.song.album.artists}}" wx:key="index1" wx:for-item="item1" wx:for-index="index1"
+                  class="h100">
+                  <view class="h100 mr10 df aic pt5" style="color:#666">
+                    {{ item1.name }}
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="df aic">
+              <view class="circle">{{item.song.album.subType}}</view>
+              <view class="otw songexplain">{{item.song.album.alias}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view wx:if="{{num===2}}" class="w100">
+  <scroll-view scroll-x class="w100">
+    <view class="df">
+      <view class="ml10">
+        <view wx:for="{{arr1}}" wx:key="index" wx:if="{{index<3}}" class="df mb10" data-item="{{item}}"
+          bindtap="clicklistdetail">
+          <image wx:if="{{item.picUrl}}" src="{{item.picUrl}}" mode="aspectFit" class="mr5"
+            style="width:100rpx;height:100rpx"></image>
+          <view>
+            <view class="df aic" style="width:630rpx">
+              <view class="onerow">{{item.name}}</view>
+              <view class="mr5 ml5"> - </view>
+              <view class="df aic onerow h100" style="font-size:20rpx">
+                <view wx:for="{{item.artists}}" wx:key="index1" wx:for-item="item1" wx:for-index="index1" class="h100">
+                  <view class="h100 mr10 df aic pt5" style="color:#666">
+                    {{ item1.name }}
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="df aic">
+              <view class="circle">{{item.subType}}</view>
+              <view class="otw" style="width:500rpx;font-size:20rpx">{{item.company}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="">
+        <view wx:for="{{arr1}}" wx:key="index" wx:if="{{index>=3 && index<6}}" class="df mb10" data-item="{{item}}"
+          bindtap="clicklistdetail">
+          <image wx:if="{{item.picUrl}}" src="{{item.picUrl}}" mode="aspectFit" class="mr5"
+            style="width:100rpx;height:100rpx"></image>
+          <view>
+            <view class="df" style="width:630rpx">
+              <view class="onerow">{{item.name}}</view>
+              <view class="mr5 ml5"> - </view>
+              <view class="df aic" style="font-size:20rpx">
+                <view wx:for="{{item.artists}}" wx:key="index1" wx:for-item="item1" wx:for-index="index1" class="mr10"
+                  class="pt5" style="color:#666">
+                  {{ item1.name }}
+                </view>
+              </view>
+            </view>
+            <view class="df aic">
+              <view class="circle">{{item.subType}}</view>
+              <view class="otw" style="width:500rpx;font-size:20rpx">{{item.company}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view wx:if="{{num===3}}" class="w100">
+  <scroll-view scroll-x class="w100">
+    <view class="df">
+      <view class="ml10">
+        <view wx:for="{{arr2}}" wx:key="index" wx:if="{{index<3}}" class="df mb10">
+          <image wx:if="{{item.picUrl}}" src="{{item.picUrl}}" mode="aspectFit" class="mr5"
+            style="width:100rpx;height:100rpx"></image>
+          <view>
+            <view class="df aic" style="width:550rpx">
+              <view class="onerow">{{item.name}}</view>
+              <view class="mr5 ml5"> - </view>
+              <view class="df aic onerow h100" style="font-size:20rpx">{{ item.copywriter }}</view>
+            </view>
+            <view class="df aic">
+              <view class="circle">{{item.program.radio.name}}</view>
+              <view class="otw" style="width:500rpx;font-size:20rpx">{{item.program.radio.category}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="">
+        <view wx:for="{{arr2}}" wx:key="index" wx:if="{{index>=3 && index<6}}" class="df mb10">
+          <image wx:if="{{item.picUrl}}" src="{{item.picUrl}}" mode="aspectFit" class="mr5"
+            style="width:100rpx;height:100rpx"></image>
+          <view>
+            <view class="df" style="width:550rpx">
+              <view class="onerow">{{item.name}}</view>
+              <view class="mr5 ml5"> - </view>
+              <view class="df aic" style="font-size:20rpx">{{ item.copywriter }}</view>
+            </view>
+            <view class="df aic">
+              <view class="circle">{{item.program.radio.name}}</view>
+              <view class="otw" style="width:500rpx;font-size:20rpx">{{item.program.radio.category}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,25 @@
+<view class="df jc-sb ml10 mr10">
+  <view class="fwb">排行榜</view>
+  <view class="more">更多></view>
+</view>
+<view>
+  <scroll-view scroll-x="true">
+    <view class="df">
+      <view wx:for="{{arr}}" wx:key="index" wx:if="{{index<4}}">
+        <view class="ml10" style="width:730rpx">
+          <view>{{item.name}}</view>
+          <view>
+            <view wx:for="{{item.tracks}}" wx:key="index1" wx:for-item="item1" wx:for-index="index1"
+              data-item="{{item1}}" bindtap="clicksongdetail">
+              <view class="df">
+                <view>{{index1+1}}、</view>
+                <view>{{item1.first}}-</view>
+                <view>{{item1.second}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

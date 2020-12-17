@@ -1,0 +1,36 @@
+@import "/style/lxh.wxss";
+
+.recommendimg {
+  width: 220rpx;
+  height: 220rpx;
+  border-radius: 30rpx;
+}
+
+.playcount {
+  background: rgba(128, 128, 128, .4);
+  border-radius: 20rpx;
+  padding: 5rpx 10rpx;
+}
+
+.playimg {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.rollimg1 {
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.rollimg2 {
+  width: 350rpx;
+  height: 350rpx;
+}
+
+.scrollwidth {
+  width: 90%;
+}
+
+.picimg {
+  width: 200rpx;
+}

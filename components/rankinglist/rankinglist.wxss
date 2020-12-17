@@ -1,0 +1,7 @@
+@import "/style/lxh.wxss";
+
+.more {
+  border: 1rpx solid #cccccc;
+  padding: 5rpx 20rpx;
+  border-radius: 26rpx;
+}

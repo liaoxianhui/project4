@@ -1,0 +1,60 @@
+<view class="df aic jcc m20 pr">
+  <image bindtap="clickback" class="mr20" src="/assets/images/return.png" mode="aspectFit"
+    style="width:40rpx;height:40rpx"></image>
+  <input type="text" value="{{value}}" placeholder="{{inputdefault}}" bindinput="inputsearch" bindfocus="inputfocus"
+    bindconfirm="confirmsearch" style="border-bottom:2rpx solid #C5C5C5;width:90%">
+  </input>
+  <image wx:if="{{value!==''}}" src="/assets/images/del.png" mode="aspectFit" class="imgdel"
+    style="width:80rpx;height:80rpx" bindtap="clickdel"></image>
+  <view wx:if="{{flag===true}}" class="suggest">
+    <view class="m10">
+      <view class="df mb10">
+        <view>搜索</view>
+        <view>“{{value}}”</view>
+      </view>
+      <view wx:for="{{arrsuggest}}" wx:key="index">
+        <view class="mb10" data-item="{{item}}" bindtap="clicksuggest">{{item.keyword}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{arrhistory.length!==0}}" class="df m20 jc-sb aic">
+  <view class="df aic" style="width:85%">
+    <view class="mr10 wsn">历史</view>
+    <view style="width:90%">
+      <scroll-view scroll-x="true">
+        <view class="df aic">
+          <view wx:for="{{arrhistory}}" wx:key="index" data-item="{{item}}" bindtap="clickhistory" class="history wsn">
+            {{item}}</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view>
+    <image bindtap="clickclear" src="/assets/images/clear.png" mode="aspectFit" style="width:40rpx;height:40rpx">
+    </image>
+  </view>
+</view>
+<view class="df jc-sb aic m20">
+  <view>热搜榜</view>
+  <view class="df aic b1s">
+    <image src="/assets/images/playall.png" mode="aspectFit" style="width:30rpx;height:30rpx"></image>
+    <view>播放</view>
+  </view>
+</view>
+<view class="bbottom"></view>
+<view class="m20">
+  <view class="df fww jc-sb w100">
+    <view wx:for="{{arr}}" wx:key="index" class="w50" wx:if="{{index<num}}">
+      <view class="w100 df aic fs13" data-item="{{item}}" bindtap="clickhotword">
+        <view class=" {{index<3?'textcolor':''}}" style="width:40rpx">{{index+1}}</view>
+        <view class="wsn otd1">{{item.searchWord}}</view>
+        <view class="textcolor fs10" wx:if="{{item.iconUrl!==null}}">HOT</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{num===10}}" class="df jcc aic" style="color:#C5C5C5" bindtap="clickhotsearch">
+  <view class="mt5 fs15">展示更多热搜</view>
+  <image src="/assets/images/Exhibition.png" mode="aspectFit" style="width:40rpx;height:50rpx"></image>
+</view>
